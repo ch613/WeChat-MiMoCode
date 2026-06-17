@@ -121,7 +121,7 @@ wechat-mimocode daemon status
 
 ## 开发与版本管理（重要）
 
-**本项目要求：每次修改代码或写完程序后，必须通过 git 提交并推送到远程仓库，以便后续回退。**
+**本项目要求：修改程序代码后，必须通过 git 提交并推送到远程仓库；文档修改只需本地提交，不需要推送。**
 
 ### Windows 脚本
 
@@ -129,23 +129,34 @@ wechat-mimocode daemon status
 
 ### Agent / Skill 工作流
 
-**当 agent（包括本 skill）对本项目代码进行任何修改后，必须执行以下步骤：**
+**当 agent（包括本 skill）对本项目进行修改后，按以下规则处理：
 
-1. 在项目根目录手动执行：
-   ```bash
-   git add -A
-   git commit -m "<描述本次修改>"
-   git push origin main
-   ```
+1. 区分修改类型，执行对应步骤：
+
+**代码/脚本修改（需要推送）：**
+```bash
+git add -A
+git commit -m "<描述本次修改>"
+git push origin main
+```
+
+**文档修改（只需本地提交）：**
+```bash
+git add -A
+git commit -m "<描述本次修改>"
+```
+
 2. 提交信息应清晰描述本次变更（如 `feat: add xxx`、`fix: 修复 xxx`、`docs: 更新 xxx`）。
-3. 推送成功后，本次变更已进入版本历史，可通过 `git log` 查看或 `git revert` 回退。
+3. 代码修改推送成功后，本次变更进入版本历史，可通过 `git log` 查看或 `git revert` 回退。
 
-**触发时机：**
-- 新增文件
+**触发推送的时机（需要 git push）：**
 - 修改源码（src/、bin/、scripts/）
 - 修改配置（package.json、tsconfig.json）
-- 修改文档（README、SKILL.md、CONTRIBUTING.md）
 - 修改脚本（install.bat、start.bat）
+
+**只本地提交不推送的时机（只需 git commit）：**
+- 修改文档（README、SKILL.md、CONTRIBUTING.md）
+- 修改 .trae/rules/ 下的规则文件
 
 **不要跳过此步骤。** 即使是小改动也要提交，这是项目的版本管理约定。
 
