@@ -8,6 +8,36 @@
 - 技术栈：TypeScript + Node.js >= 18
 - 作用：通过微信与本地 MiMoCode CLI 对话的桥接
 
+## 强制规则：回答问题前先参考汇总文档
+
+**在回答任何问题前，必须先检查 `.trae/rules/agents-skills-summary.md` 是否与问题相关。如果相关，必须参考该文档内容来回答。**
+
+该文档汇总了本机 Codex CLI 和 OpenCode 的：
+- Agent 列表（11 个 OmO agent、角色、默认模型、回退链）
+- Skill 列表（Codex 24 个、OpenCode 2 个、OmO 6 个内置）
+- 任务类别（8 个，含模型和回退链）
+- 模型提供商（8 个，含 baseURL 和可用模型）
+- 斜杠命令（8 个 OmO 命令）
+- 配置文件路径速查表
+
+### 触发参考的关键词
+
+当用户问题包含以下任何关键词时，必须先查阅汇总文档：
+- codex、opencode、omo、oh-my-openagent
+- agent、skill、类别、category
+- 模型、model、提供商、provider
+- 斜杠命令、slash command
+- sisyphus、hephaestus、oracle、librarian、explore、prometheus、metis、momus、atlas
+- playwright、git-master、frontend-ui-ux、dev-browser
+- ralph-loop、start-work、refactor、init-deep
+
+### 执行方式
+
+1. 收到问题后，先判断是否涉及上述关键词
+2. 如果涉及，读取 `.trae/rules/agents-skills-summary.md` 获取准确信息
+3. 基于文档内容回答，不要凭记忆编造
+4. 如果文档中没有相关信息，明确告知用户并建议查阅实际配置文件
+
 ## 强制规则：代码修改后必须 git 同步
 
 **每次对本项目代码进行任何修改（新增、编辑、删除文件）后，必须立即执行 git 提交并推送到远程仓库。**
