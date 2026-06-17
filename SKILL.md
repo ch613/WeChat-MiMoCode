@@ -125,18 +125,13 @@ wechat-mimocode daemon status
 
 ### Windows 脚本
 
-项目根目录提供两个 .bat 脚本：
-
-| 脚本 | 作用 |
-|------|------|
-| `install.bat` | 一键安装：检查 Node.js → npm install → npm run build → 全局安装 → 验证 |
-| `git-sync.bat` | 一键同步：显示变更 → 输入提交信息（可留空自动生成）→ git add → git commit → git push origin main |
+项目根目录提供 `install.bat` 一键安装脚本：检查 Node.js → npm install → npm run build → 全局安装 → 验证。
 
 ### Agent / Skill 工作流
 
 **当 agent（包括本 skill）对本项目代码进行任何修改后，必须执行以下步骤：**
 
-1. 在项目根目录运行 `git-sync.bat`，或手动执行等价命令：
+1. 在项目根目录手动执行：
    ```bash
    git add -A
    git commit -m "<描述本次修改>"
@@ -150,7 +145,7 @@ wechat-mimocode daemon status
 - 修改源码（src/、bin/、scripts/）
 - 修改配置（package.json、tsconfig.json）
 - 修改文档（README、SKILL.md、CONTRIBUTING.md）
-- 修改脚本（install.bat、git-sync.bat、start.bat）
+- 修改脚本（install.bat、start.bat）
 
 **不要跳过此步骤。** 即使是小改动也要提交，这是项目的版本管理约定。
 

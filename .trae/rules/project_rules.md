@@ -24,12 +24,6 @@ git commit -m "<描述本次修改，使用 Conventional Commits 规范>"
 git push origin main
 ```
 
-或者直接运行：
-
-```bash
-git-sync.bat
-```
-
 ### 提交信息规范
 
 使用 [Conventional Commits](https://www.conventionalcommits.org/)：
@@ -88,7 +82,6 @@ wechat-mimocode/
 │   └── store.ts            # 数据存储
 ├── scripts/                # 辅助脚本
 ├── install.bat             # 一键安装
-├── git-sync.bat            # 一键 git 同步
 ├── start.bat               # 启动服务
 └── package.json
 ```
