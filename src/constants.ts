@@ -1,0 +1,10 @@
+import { homedir } from 'node:os';
+import { join } from 'node:path';
+
+export const DATA_DIR = process.env.WMC_DATA_DIR || join(homedir(), '.wechat-mimocode');
+
+export const DEFAULT_WORKING_DIR = join(homedir(), 'Documents', 'MiMoCode');
+
+export const DEFAULT_MODEL = process.env.WMC_MODEL || '';
+
+export const CDN_BASE_URL = 'https://novac2c.cdn.weixin.qq.com/c2c';
