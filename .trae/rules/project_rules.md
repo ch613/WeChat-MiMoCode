@@ -40,7 +40,7 @@ git push origin main
 以下任何操作完成后，都要执行 git 同步：
 - 修改 src/ 下的源码
 - 修改 bin/ 或 scripts/ 下的脚本
-- 修改 .bat 脚本（install.bat、git-sync.bat、start.bat）
+- 修改 .bat 脚本（install.bat、start.bat）
 - 修改配置文件（package.json、tsconfig.json）
 - 修改文档（README.md、SKILL.md、CONTRIBUTING.md）
 - 新增或删除任何文件
