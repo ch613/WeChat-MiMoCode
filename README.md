@@ -1,4 +1,4 @@
-# WeChat MiMoCode Bridge
+# WeChat MiMoCode
 
 <p align="center">
   <strong>通过微信与 MiMoCode 对话，就像和朋友聊天一样</strong>
