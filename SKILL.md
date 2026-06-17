@@ -119,6 +119,57 @@ wechat-mimocode daemon status
 
 如果用户明确指定了操作（如"启动微信"、"停止微信服务"、"看看日志"等），跳过状态展示直接执行对应命令。
 
+## 开发与版本管理（重要）
+
+**本项目要求：每次修改代码或写完程序后，必须通过 git 提交并推送到远程仓库，以便后续回退。**
+
+### Windows 脚本
+
+项目根目录提供两个 .bat 脚本：
+
+| 脚本 | 作用 |
+|------|------|
+| `install.bat` | 一键安装：检查 Node.js → npm install → npm run build → 全局安装 → 验证 |
+| `git-sync.bat` | 一键同步：显示变更 → 输入提交信息（可留空自动生成）→ git add → git commit → git push origin main |
+
+### Agent / Skill 工作流
+
+**当 agent（包括本 skill）对本项目代码进行任何修改后，必须执行以下步骤：**
+
+1. 在项目根目录运行 `git-sync.bat`，或手动执行等价命令：
+   ```bash
+   git add -A
+   git commit -m "<描述本次修改>"
+   git push origin main
+   ```
+2. 提交信息应清晰描述本次变更（如 `feat: add xxx`、`fix: 修复 xxx`、`docs: 更新 xxx`）。
+3. 推送成功后，本次变更已进入版本历史，可通过 `git log` 查看或 `git revert` 回退。
+
+**触发时机：**
+- 新增文件
+- 修改源码（src/、bin/、scripts/）
+- 修改配置（package.json、tsconfig.json）
+- 修改文档（README、SKILL.md、CONTRIBUTING.md）
+- 修改脚本（install.bat、git-sync.bat、start.bat）
+
+**不要跳过此步骤。** 即使是小改动也要提交，这是项目的版本管理约定。
+
+### 回退方法
+
+```bash
+# 查看历史提交
+git log --oneline
+
+# 回退到某个版本（保留工作区改动）
+git reset --soft <commit-hash>
+
+# 回退到某个版本（丢弃工作区改动，谨慎使用）
+git reset --hard <commit-hash>
+
+# 撤销某次提交（生成新提交，不改写历史）
+git revert <commit-hash>
+```
+
 ## 子命令参考
 
 所有命令通过 `wechat-mimocode` CLI 执行（全局安装后任意目录可用）。
